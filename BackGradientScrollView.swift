@@ -1,5 +1,5 @@
 //
-//  BackGridientScrollView.swift
+//  BackGradientScrollView.swift
 //  ScrollDemo
 //
 //  Created by hong on 2024/7/19.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct BackGridientScrollView<Content: View>: View {
+struct BackGradientScrollView<Content: View>: View {
     
     var backgroundColor:Color = .white
     
@@ -29,7 +29,7 @@ struct BackGridientScrollView<Content: View>: View {
                 .frame(maxWidth: .infinity)
         }
         .background(
-            BackGridientView(color:backgroundColor ,height: height, offset: $verticalOffset, pic: pic)
+            BackGradientView(color:backgroundColor ,height: height, offset: $verticalOffset, pic: pic)
         )
     }
 }
