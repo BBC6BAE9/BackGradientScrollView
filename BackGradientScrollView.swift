@@ -9,19 +9,17 @@
 import SwiftUI
 
 struct BackGradientScrollView<Content: View>: View {
+    var backgroundColor: Color = .white
     
-    var backgroundColor:Color = .white
+    var pic: URL?
     
-    var pic:URL?
-    
-    var height:CGFloat
+    var height: CGFloat
     
     var content: () -> Content
     
     @State private var verticalOffset: CGFloat = 0.0
     
     var body: some View {
-        
         OffsettableScrollView { point in
             verticalOffset = point.y
         } content: {
@@ -29,7 +27,7 @@ struct BackGradientScrollView<Content: View>: View {
                 .frame(maxWidth: .infinity)
         }
         .background(
-            BackGradientView(color:backgroundColor ,height: height, offset: $verticalOffset, pic: pic)
+            BackGradientView(color: backgroundColor, height: height, offset: $verticalOffset, pic: pic)
         )
     }
 }
@@ -43,8 +41,8 @@ private struct OffsettableScrollView<T: View>: View {
     init(axes: Axis.Set = .vertical,
          showsIndicator: Bool = true,
          onOffsetChanged: @escaping (CGPoint) -> Void = { _ in },
-         @ViewBuilder content: () -> T
-    ) {
+         @ViewBuilder content: () -> T)
+    {
         self.axes = axes
         self.showsIndicator = showsIndicator
         self.onOffsetChanged = onOffsetChanged
@@ -71,8 +69,7 @@ private struct OffsettableScrollView<T: View>: View {
 }
 
 private struct OffsetPreferenceKey: PreferenceKey {
-    
     static var defaultValue: CGPoint = .zero
     
-    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) { }
+    static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) {}
 }

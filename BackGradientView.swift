@@ -6,18 +6,17 @@
 //  Copyright © 2024 Fooman Inc. All rights reserved.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 struct BackGradientView: View {
-    
     var color: Color
     var height: CGFloat
     @Binding var offset: CGFloat
-    var pic:URL?
+    var pic: URL?
     @State var themeColor: Color = .clear
     
-    init(color: Color = .clear, height: CGFloat, offset: Binding<CGFloat>, pic:URL?) {
+    init(color: Color = .clear, height: CGFloat, offset: Binding<CGFloat>, pic: URL?) {
         self.color = color
         self.height = height
         self._offset = offset
@@ -25,7 +24,7 @@ struct BackGradientView: View {
     }
     
     var body: some View {
-        VStack{
+        VStack {
             KFImage(pic)
                 .centerCropped()
                 .frame(height: height)
@@ -44,7 +43,7 @@ struct BackGradientView: View {
                 .mask {
                     LinearGradient(gradient: Gradient(stops: [
                         Gradient.Stop(color: Color.clear, location: 0),
-                        Gradient.Stop(color: color, location: 0.4)
+                        Gradient.Stop(color: color, location: 0.4),
                     ]), startPoint: .bottom, endPoint: .top)
                 }
                 .scaleEffect(scale())
@@ -53,7 +52,6 @@ struct BackGradientView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .background(color)
-        
     }
     
     /// 计算缩放比例
