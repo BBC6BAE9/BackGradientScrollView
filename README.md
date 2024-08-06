@@ -1,2 +1,4 @@
 # BackGridientScrollView
-Animate like Apple TV+
+Animate like  **Apple TV+**
+
+![pic](./pic.png)
