@@ -1,5 +1,5 @@
 //
-//  BackGridientView.swift
+//  BackGradientView.swift
 //  ScrollDemo
 //
 //  Created by hong on 2024/7/19.
@@ -9,7 +9,7 @@
 import SwiftUI
 import Kingfisher
 
-struct BackGridientView: View {
+struct BackGradientView: View {
     
     var color: Color
     var height: CGFloat
